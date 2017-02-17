@@ -1,6 +1,26 @@
 " to ward off unexpected changes that might have been made by the distro
 set nocompatible
 
+" setup for Vundle
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" added nerdtree
+Plugin 'scrooloose/nerdtree'
+" added nertreegit
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" added you complete me
+Plugin 'Valloric/YouCompleteMe'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
 " find the type of the file based on name and content and allow autoindenting
 filetype indent plugin on 
 filetype plugin on
