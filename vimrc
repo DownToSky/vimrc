@@ -1,11 +1,20 @@
 " to ward off unexpected changes that might have been made by the distro
-set noncompatible
+set nocompatible
 
 " find the type of the file based on name and content and allow autoindenting
 filetype indent plugin on 
+filetype plugin on
 
 " enable syntax highlighting
 syntax on
+
+" matchit
+silent! runtime macros/matchit.vim
+
+" set the title of command line 
+set title
+
+
 
 " for not keeping the buffer in multiple window
 set hidden
@@ -45,7 +54,7 @@ set confirm
 
 " visual bell instead of beeping, and disabling it
 set visualbell
-set t_vb
+set t_vb=
 
 " enable use of mouse
 set mouse=a
@@ -60,18 +69,26 @@ set number
 set notimeout ttimeout ttimeoutlen=200
 
 " use F11 to toggle between paste and no paste
-set pastetoggle=<F11>
+set pastetoggle=<F4>
 
 " 4 space instead of tabs
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" word processing mode fuctionality by using the WP command on command mode
+func! WordProcessMode()
+    setlocal formatoptions=t1
+    setlocal textwidth=80
+    setlocal smartindent
+    setlocal spell spelllang=en_us
+    setlocal noexpandtab
+endfu
+com! WP call WordProcessorMode()
 
-
-
-
-
+" set the colours scheme to molokai. Make sure this scheme is in your 
+" ~/.vim/colors/ directory
+silent! colorscheme molokai
 
 " References used:
 " -------------
